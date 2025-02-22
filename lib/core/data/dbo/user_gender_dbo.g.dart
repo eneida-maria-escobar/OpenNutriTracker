@@ -17,6 +17,14 @@ class UserGenderDBOAdapter extends TypeAdapter<UserGenderDBO> {
         return UserGenderDBO.male;
       case 1:
         return UserGenderDBO.female;
+
+      case 2:
+        return UserGenderDBO.nonbinary;
+      case 3:
+        return UserGenderDBO.transgenderFemale;
+      case 4:
+        return UserGenderDBO.transgenderMale;
+      
       default:
         return UserGenderDBO.male;
     }
@@ -30,6 +38,15 @@ class UserGenderDBOAdapter extends TypeAdapter<UserGenderDBO> {
         break;
       case UserGenderDBO.female:
         writer.writeByte(1);
+        break;
+      case UserGenderDBO.nonbinary:
+        writer.writeByte(2);
+        break;
+      case UserGenderDBO.transgenderFemale:
+        writer.writeByte(3);
+        break;
+      case UserGenderDBO.transgenderMale:
+        writer.writeByte(4);
         break;
     }
   }

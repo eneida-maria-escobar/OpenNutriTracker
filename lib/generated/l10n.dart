@@ -1841,6 +1841,42 @@ class S {
     );
   }
 
+
+  /// `nonbinary`
+  String get genderNonbinaryLabel {
+    return Intl.message(
+      'nonbinary',
+      name: 'nonbinary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Transgender female`
+  String get genderTransFemaleLabel {
+    return Intl.message(
+      'Transgender female',
+      name: 'genderTransFemaleLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+/// `Transgender male`
+  String get genderTransMaleLabel {
+    return Intl.message(
+      'Transgender male',
+      name: 'genderTransMaleLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+
+
+
+
+
   /// `Nothing added`
   String get nothingAddedLabel {
     return Intl.message(

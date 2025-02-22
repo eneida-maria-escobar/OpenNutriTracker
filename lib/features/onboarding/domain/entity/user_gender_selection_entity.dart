@@ -1,4 +1,8 @@
 enum UserGenderSelectionEntity {
   genderMale,
-  genderFemale
+  genderFemale,
+  gendernonbinary,
+  gendertransgenderFemale,
+  gendertransgenderMale
+
 }

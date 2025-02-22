@@ -1,10 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; 
 import 'package:opennutritracker/core/data/dbo/user_gender_dbo.dart';
 import 'package:opennutritracker/generated/l10n.dart';
 
 enum UserGenderEntity {
   male,
-  female;
+  female,
+  nonbinary,
+  transgenderFemale,
+  transgenderMale;
 
   factory UserGenderEntity.fromUserGenderDBO(UserGenderDBO genderDBO) {
     UserGenderEntity genderEntity;
@@ -14,6 +17,15 @@ enum UserGenderEntity {
         break;
       case UserGenderDBO.female:
         genderEntity = UserGenderEntity.female;
+        break;
+      case UserGenderDBO.nonbinary:
+        genderEntity = UserGenderEntity.nonbinary;
+        break;
+      case UserGenderDBO.transgenderFemale:
+        genderEntity = UserGenderEntity.transgenderFemale;
+        break;
+      case UserGenderDBO.transgenderMale:
+        genderEntity = UserGenderEntity.transgenderMale;
         break;
     }
     return genderEntity;
@@ -28,6 +40,15 @@ enum UserGenderEntity {
       case UserGenderEntity.female:
         name = S.of(context).genderFemaleLabel;
         break;
+      case UserGenderEntity.nonbinary:
+        name = S.of(context).genderNonbinaryLabel;
+        break;
+      case UserGenderEntity.transgenderFemale:
+        name = S.of(context).genderTransFemaleLabel;
+        break;
+      case UserGenderEntity.transgenderMale:
+        name = S.of(context).genderTransMaleLabel;
+        break;
     }
     return name;
   }
@@ -40,6 +61,15 @@ enum UserGenderEntity {
         break;
       case UserGenderEntity.female:
         icon = Icons.female_outlined;
+        break;
+      case UserGenderEntity.nonbinary:
+        icon = Icons.nonbinary_outlined;
+        break;
+      case UserGenderEntity.transgenderFemale:
+        icon = Icons.transgenderFemale_outlined;
+        break;
+      case UserGenderEntity.transgenderMale:
+        icon = Icons.transgenderMale_outlined;
         break;
     }
     return icon;

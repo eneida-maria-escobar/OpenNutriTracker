@@ -8,7 +8,15 @@ enum UserGenderDBO {
   @HiveField(0)
   male,
   @HiveField(1)
-  female;
+  female,
+  @HiveField(2)
+  nonbinary,
+  @HiveField(3)
+  transgenderFemale,
+  @HiveField(4)
+  transgenderMale;
+
+
 
   factory UserGenderDBO.fromUserGenderEntity(UserGenderEntity genderEntity) {
     UserGenderDBO gender;
@@ -19,6 +27,17 @@ enum UserGenderDBO {
       case UserGenderEntity.female:
         gender = UserGenderDBO.female;
         break;
+      
+      case UserGenderDBO.nonbinary:
+        gender = UserGenderEntity.nonbinary;
+        break;
+      case UserGenderDBO.transgenderFemale:
+        gender = UserGenderEntity.transgenderFemale;
+        break;
+      case UserGenderDBO.transgenderMale:
+        gender = UserGenderEntity.transgenderMale;
+        break;
+    
     }
     return gender;
   }

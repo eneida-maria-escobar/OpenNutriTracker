@@ -23,6 +23,29 @@ class BMRCalc {
             1.8496 * user.heightCM -
             4.6756 * user.age;
         break;
+      case UserGenderEntity.nonbinary:
+        bmr = ((66.4730 +
+                13.7516 * user.weightKG +
+                5.0033 * user.heightCM -
+                6.7550 * user.age) +
+            (655.0955 +
+                9.5634 * user.weightKG +
+                1.8496 * user.heightCM -
+                4.6756 * user.age)) /
+            2;
+        break;
+      case UserGenderEntity.transgenderFemale:
+        bmr = 655.0955 +
+            9.5634 * user.weightKG +
+            1.8496 * user.heightCM -
+            4.6756 * user.age;
+        break;
+      case UserGenderEntity.transgenderMale:
+        bmr = 66.4730 +
+            13.7516 * user.weightKG +
+            5.0033 * user.heightCM -
+            6.7550 * user.age;
+        break;
     }
     return bmr;
   }
@@ -49,6 +72,29 @@ class BMRCalc {
             3.098 * user.heightCM -
             4.330 * user.age;
         break;
+      case UserGenderEntity.nonbinary:
+        bmr = ((88.362 +
+                13.397 * user.weightKG +
+                4.799 * user.heightCM -
+                5.677 * user.age) +
+            (447.593 +
+                9.247 * user.weightKG +
+                3.098 * user.heightCM -
+                4.330 * user.age)) /
+            2;
+        break;
+      case UserGenderEntity.transgenderFemale:
+        bmr = 447.593 +
+            9.247 * user.weightKG +
+            3.098 * user.heightCM -
+            4.330 * user.age;
+        break;
+      case UserGenderEntity.transgenderMale:
+        bmr = 88.362 +
+            13.397 * user.weightKG +
+            4.799 * user.heightCM -
+            5.677 * user.age;
+        break;
     }
     return bmr;
   }
@@ -69,11 +115,21 @@ class BMRCalc {
       case UserGenderEntity.female:
         a = -161;
         break;
+      case UserGenderEntity.nonbinary:
+        a = (5 + (-161)) / 2;
+        break;
+      case UserGenderEntity.transgenderFemale:
+        a = -161;
+        break;
+      case UserGenderEntity.transgenderMale:
+        a = 5;
+        break;
     }
     final bmr = 10 * user.weightKG + 6.25 * user.heightCM - 5 * user.age + a;
     return bmr;
   }
 
+  ///
   /// Calculates BMR of UserEntity based on the 1985 Schofield equation
   /// from the paper 'Predicting basal metabolic rate, new standards and
   /// review of previous work' by Schofield
@@ -86,43 +142,78 @@ class BMRCalc {
       case UserGenderEntity.male:
         if (age < 3) {
           bmr = 59.512 * user.weightKG - 30.4;
-          break;
         } else if (age < 10) {
           bmr = 22.706 * user.weightKG + 504.3;
-          break;
         } else if (age < 18) {
           bmr = 17.686 * user.weightKG + 658.2;
-          break;
         } else if (age < 30) {
           bmr = 15.057 * user.weightKG + 692.2;
-          break;
         } else if (age < 60) {
           bmr = 11.472 * user.weightKG + 873.1;
-          break;
         } else {
           bmr = 11.711 * user.weightKG + 587.7;
-          break;
         }
+        break;
       case UserGenderEntity.female:
         if (age < 3) {
           bmr = 58.317 * user.weightKG - 31.1;
-          break;
         } else if (age < 10) {
           bmr = 20.315 * user.weightKG + 485.9;
-          break;
         } else if (age < 18) {
           bmr = 13.384 * user.weightKG + 692.6;
-          break;
         } else if (age < 30) {
           bmr = 14.818 * user.weightKG + 486.6;
-          break;
         } else if (age < 60) {
           bmr = 8.126 * user.weightKG + 845.6;
-          break;
         } else {
           bmr = 9.082 * user.weightKG + 658.5;
-          break;
         }
+        break;
+      case UserGenderEntity.nonbinary:
+        if (age < 3) {
+          bmr = ( (59.512 * user.weightKG - 30.4) + (58.317 * user.weightKG - 31.1) ) / 2;
+        } else if (age < 10) {
+          bmr = ( (22.706 * user.weightKG + 504.3) + (20.315 * user.weightKG + 485.9) ) / 2;
+        } else if (age < 18) {
+          bmr = ( (17.686 * user.weightKG + 658.2) + (13.384 * user.weightKG + 692.6) ) / 2;
+        } else if (age < 30) {
+          bmr = ( (15.057 * user.weightKG + 692.2) + (14.818 * user.weightKG + 486.6) ) / 2;
+        } else if (age < 60) {
+          bmr = ( (11.472 * user.weightKG + 873.1) + (8.126 * user.weightKG + 845.6) ) / 2;
+        } else {
+          bmr = ( (11.711 * user.weightKG + 587.7) + (9.082 * user.weightKG + 658.5) ) / 2;
+        }
+        break;
+      case UserGenderEntity.transgenderFemale:
+        if (age < 3) {
+          bmr = 58.317 * user.weightKG - 31.1;
+        } else if (age < 10) {
+          bmr = 20.315 * user.weightKG + 485.9;
+        } else if (age < 18) {
+          bmr = 13.384 * user.weightKG + 692.6;
+        } else if (age < 30) {
+          bmr = 14.818 * user.weightKG + 486.6;
+        } else if (age < 60) {
+          bmr = 8.126 * user.weightKG + 845.6;
+        } else {
+          bmr = 9.082 * user.weightKG + 658.5;
+        }
+        break;
+      case UserGenderEntity.transgenderMale:
+        if (age < 3) {
+          bmr = 59.512 * user.weightKG - 30.4;
+        } else if (age < 10) {
+          bmr = 22.706 * user.weightKG + 504.3;
+        } else if (age < 18) {
+          bmr = 17.686 * user.weightKG + 658.2;
+        } else if (age < 30) {
+          bmr = 15.057 * user.weightKG + 692.2;
+        } else if (age < 60) {
+          bmr = 11.472 * user.weightKG + 873.1;
+        } else {
+          bmr = 11.711 * user.weightKG + 587.7;
+        }
+        break;
     }
     return bmr;
   }

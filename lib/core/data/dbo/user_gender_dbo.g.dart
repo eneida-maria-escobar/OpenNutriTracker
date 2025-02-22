@@ -17,14 +17,12 @@ class UserGenderDBOAdapter extends TypeAdapter<UserGenderDBO> {
         return UserGenderDBO.male;
       case 1:
         return UserGenderDBO.female;
-
       case 2:
         return UserGenderDBO.nonbinary;
       case 3:
         return UserGenderDBO.transgenderFemale;
       case 4:
         return UserGenderDBO.transgenderMale;
-      
       default:
         return UserGenderDBO.male;
     }

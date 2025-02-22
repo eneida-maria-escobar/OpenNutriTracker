@@ -29,13 +29,13 @@ enum UserGenderDBO {
         break;
       
       case UserGenderDBO.nonbinary:
-        gender = UserGenderEntity.nonbinary;
+        gender = UserGenderDBO.nonbinary;
         break;
       case UserGenderDBO.transgenderFemale:
-        gender = UserGenderEntity.transgenderFemale;
+        gender = UserGenderDBO.transgenderFemale;
         break;
       case UserGenderDBO.transgenderMale:
-        gender = UserGenderEntity.transgenderMale;
+        gender = UserGenderDBO.transgenderMale;
         break;
     
     }
